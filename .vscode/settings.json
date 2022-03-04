@@ -1,0 +1,4 @@
+{
+  "cSpell.words": ["pearsonr", "pyplot", "tolist"],
+  "python.formatting.provider": "autopep8"
+}
