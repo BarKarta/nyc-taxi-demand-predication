@@ -1,4 +1,11 @@
 {
-  "cSpell.words": ["pearsonr", "pyplot", "tolist"],
+  "cSpell.words": [
+    "barka",
+    "fillna",
+    "pearsonr",
+    "pyplot",
+    "tolist",
+    "unneccery"
+  ],
   "python.formatting.provider": "autopep8"
 }
