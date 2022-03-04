@@ -1,7 +1,5 @@
-from asyncore import write
 import pandas as pd
 import glob
-import os
 
 
 def write_to_Log(x):
