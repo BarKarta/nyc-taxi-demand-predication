@@ -1,6 +1,8 @@
 import pandas as pd
 import glob
 
+from pip import main
+
 
 def write_to_Log(x):
     """Function writes to a log file."""
@@ -72,6 +74,7 @@ weather_df.rename(columns={'Date': 'pickup_date'}, inplace=True)
 
 for zone in manhattan_zones_ID:
 
+    print(f"Zone # {zone}")
     print("Step 1: Concating all the months")
     # zones dir
     zone_path = f"D:\\Final Project\\Data\\2019\\Manhattan_Data\\{zone}"
@@ -84,9 +87,8 @@ for zone in manhattan_zones_ID:
     main_df = pd.concat(li, axis=0, ignore_index=True)
     print("Step 1 Completed")
 
-    write_to_Log(f'Zone # {zone}')
-    print(f"Zone # {zone}")
-    write_to_Log(f'Zone Length {len(main_df)}')
+    write_to_Log(f'Zone {zone}\n')
+    write_to_Log(f'Zone Length {len(main_df)}\n')
 
     # Remove Duplicates & replacing the Nan's At Passenger_Count to 1
     print("Step 2: Remove duplicates and replacing the Nan's At Passenger_Count to 1 ")
@@ -96,7 +98,7 @@ for zone in manhattan_zones_ID:
     # If we have a lot of missing values we write it to a log file.
     if main_df.isnull().sum().sum() >= (len(main_df)/100)*10:
         write_to_Log(
-            f'Zone has more than 10% missing information NEED to be Fixed Manually')
+            f'Zone has more than 10% missing information NEED to be Fixed Manually\n')
     else:
         main_df.dropna(inplace=True)
     print("Step 2 Completed")
@@ -143,26 +145,17 @@ for zone in manhattan_zones_ID:
 
     # Find the Outliers for Speed
     botrange, toprange, outliers = get_outliers(main_df, main_df['speed'])
-    print(f'speed top range outlier: {toprange}')
-    print(f'speed bottom range outlier: {botrange}')
     index_list = [i for i in main_df.index if i not in outliers.index]
     main_no_outliers_df = main_df.loc[index_list]
-
     botrange, toprange, outliers = get_outliers(
         main_df, main_df['trip_distance'])
-    print(f'trip_distance top range outlier: {toprange}')
-    print(f'trip_distance bottom range outlier: {botrange}')
     index_list = [
         i for i in main_no_outliers_df.index if i not in outliers.index]
     main_no_outliers_df = main_no_outliers_df.loc[index_list]
-
     botrange, toprange, outliers = get_outliers(main_df, main_df['trip_time'])
-    print(f'trip_time top range outlier: {toprange}')
-    print(f'trip_time bottom range outlier: {botrange}')
     index_list = [
         i for i in main_no_outliers_df.index if i not in outliers.index]
     main_no_outliers_df = main_no_outliers_df.loc[index_list]
-
     main_no_outliers_df.reset_index(inplace=True, drop=True)
     main_df = main_no_outliers_df
 
@@ -208,6 +201,11 @@ for zone in manhattan_zones_ID:
     main_df = main_df[['pickup_date', 'weekday', 'time_binned', 'Tmax', 'Tmin', 'Tavg', 'Tdep', 'HDD', 'CDD', 'Precipitation', 'new_snow', 'snow_depth', 'trip_distance', 'trip_time',
                        'speed', 'num_of_taxis']]
 
+    # Adds a Zone colum
+    main_df['Zone'] = zone
+
     # Save the new Dataframe to a CSV
     main_df.to_csv(
         f'D:\\Final Project\\Data\\2019\\Manhattan_Data\\{zone}\\post_data_prep.csv', index=False)
+    write_to_Log('\n')
+print('Finish')
