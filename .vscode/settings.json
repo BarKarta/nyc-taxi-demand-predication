@@ -4,6 +4,7 @@
     "fillna",
     "pearsonr",
     "pyplot",
+    "sklearn",
     "tolist",
     "unneccery"
   ],
