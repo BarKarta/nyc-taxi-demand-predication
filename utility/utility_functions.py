@@ -17,7 +17,7 @@ def load_post_data_prep_all_zone() -> pd.DataFrame:
 
 
 def get_dummies(cat_features: list, df: pd.DataFrame) -> pd.DataFrame:
-    """_summary_
+    """ Converts the catergorial features to a numeric features
 
     Args:
         cat_features (list): List of the catergorial features in the dataframe
