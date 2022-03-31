@@ -4,8 +4,12 @@
     "fillna",
     "pearsonr",
     "pyplot",
+    "sklearn",
     "tolist",
     "unneccery"
   ],
-  "python.formatting.provider": "autopep8"
+  "python.formatting.provider": "autopep8",
+  "python.linting.pydocstyleEnabled": false,
+  "python.linting.pycodestyleEnabled": true,
+  "python.linting.enabled": true
 }

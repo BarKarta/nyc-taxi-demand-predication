@@ -1,4 +1,3 @@
-import glob
 import pandas as pd
 
 # Get the Manhattan zones LocationID
