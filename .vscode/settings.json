@@ -6,7 +6,8 @@
     "pyplot",
     "sklearn",
     "tolist",
-    "unneccery"
+    "unneccery",
+    "xgboost"
   ],
   "python.formatting.provider": "autopep8",
   "python.linting.pydocstyleEnabled": false,
