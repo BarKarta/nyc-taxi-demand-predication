@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import Input_Row from "./Input_Row";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
+    <Input_Row />
     <App />
   </React.StrictMode>,
   document.getElementById("root")
