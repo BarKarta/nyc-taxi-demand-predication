@@ -3,8 +3,7 @@ from typing import Tuple, List, Final
 import pandas as pd
 
 # CONST
-post_data_prep_all_zone_PATH: Final = r'C:\Users\barka\OneDrive\Final Project\Data\Manhattan\
-                            2019\post_data_prep_all_zones.csv'
+post_data_prep_all_zone_PATH: Final = r'C:\Users\barka\OneDrive\Final Project\Data\Manhattan\2019\post_data_prep_all_zones.csv'
 
 
 def load_post_data_prep_all_zone() -> pd.DataFrame:
@@ -51,7 +50,7 @@ def swap_first_and_last_col(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def split_X_y(df: pd.DataFrame, target_feature) -> Tuple[List[str], pd.DataFrame]:
+def split_X_y(df: pd.DataFrame, target_feature: str) -> Tuple[List[str], pd.DataFrame]:
     """ split the data into two, dataframe with out the target feature,
         and an array of the target feature.
 
@@ -64,5 +63,6 @@ def split_X_y(df: pd.DataFrame, target_feature) -> Tuple[List[str], pd.DataFrame
         List, pd.pd.DataFrame: y,X
     """
     y = df[target_feature]
-    X = df.drop(target_feature, axis=1, inplace=True)
+    df.drop(target_feature, axis=1, inplace=True)
+    X = df
     return y, X
