@@ -1,17 +1,16 @@
 import "./input_rows.css";
+import axios from "axios";
+
 const Input_Row = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.set_data([
-      {
-        name: "Chelsea",
-        values: [
-          { label: "Population", val: 20000 },
-          { label: "Restaurants", val: "690" },
-        ],
-        color: "#E31A1C",
-      },
-    ]);
+    axios
+      .get("http://localhost:5000/books")
+      .then((response) => {
+        console.log(response.data);
+        props.set_data(response.data);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
