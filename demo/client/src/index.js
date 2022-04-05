@@ -1,13 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import Input_Row from "./Input_Row";
+import Main_comp from "./Main_comp";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Input_Row />
-    <App />
+    <Main_comp />
   </React.StrictMode>,
   document.getElementById("root")
 );

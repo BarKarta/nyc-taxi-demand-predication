@@ -1,36 +1,39 @@
-const Input_Row = () => {
+import "./input_rows.css";
+const Input_Row = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("hello");
+    props.set_data([
+      {
+        name: "Chelsea",
+        values: [
+          { label: "Population", val: 20000 },
+          { label: "Restaurants", val: "690" },
+        ],
+        color: "#E31A1C",
+      },
+    ]);
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
+      <div className="input_rows">
         <label for="zone">zone:</label>
         <input type="text" id="zoneID" />
-        <br />
         <label for="Time">Time:</label>
         <input type="text" id="timeID" />
-        <br />
         <label for="">zone:</label>
         <input type="text" id="zoneID" />
-        <br />
         <label for="zone">zone:</label>
         <input type="text" id="zoneID" />
-        <br />
         <label for="zone">zone:</label>
         <input type="text" id="zoneID" />
-        <br />
         <label for="zone">zone:</label>
         <input type="text" id="zoneID" />
-        <br />
         <label for="zone">zone:</label>
         <input type="text" id="zoneID" />
-        <br />
         <input type="submit" value="Submit" />
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 export default Input_Row;
