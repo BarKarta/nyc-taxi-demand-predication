@@ -31,7 +31,7 @@ def get_dummies(cat_features: list, df: pd.DataFrame) -> pd.DataFrame:
         temp_dummy = pd.get_dummies(df[feature])
         df = pd.merge(left=temp_dummy, right=df,
                       left_index=True, right_index=True)
-    df.drop(cat_features, axis=1, inplace=True)
+    df = df.drop(cat_features, axis=1)
     return df
 
 
@@ -63,6 +63,6 @@ def split_X_y(df: pd.DataFrame, target_feature: str) -> Tuple[List[str], pd.Data
         List, pd.pd.DataFrame: y,X
     """
     y = df[target_feature]
-    df.drop(target_feature, axis=1, inplace=True)
-    X = df
+    temp = df.drop(target_feature, axis=1)
+    X = temp
     return y, X
