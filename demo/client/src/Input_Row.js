@@ -13,7 +13,7 @@ const Input_Row = () => {
         <label for="Time">Time:</label>
         <input type="text" id="timeID" />
         <br />
-        <label for="zone">zone:</label>
+        <label for="">zone:</label>
         <input type="text" id="zoneID" />
         <br />
         <label for="zone">zone:</label>
