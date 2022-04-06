@@ -8,8 +8,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 data = [{
         'name': "Chelsea",
         'values': [
-            {'label': "Population", 'val': 20000},
-            {'label': "Restaurants", 'val': "690"},
+            {'label': "Number of Drives", 'val': 100},
         ],
         'color': "#E31A1C",
         }]
