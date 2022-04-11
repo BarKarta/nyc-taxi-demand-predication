@@ -1,31 +1,31 @@
 import "./input_rows.css";
 import axios from "axios";
+import React, { useState } from "react";
 
-const [zone, setZone] = useState("");
-const [date, setDate] = useState("");
-const [time, setTime] = useState("");
-const bodyFormData = new FormData();
 const Input_Row = (props) => {
+  const [zone, setZone] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    bodyFormData.append("zone", zone);
-    bodyFormData.append("date", date);
-    bodyFormData.append("time", time);
     axios({
       method: "post",
       url: "http://localhost:5000/calc",
-      headers: { "Content-Type": "multipart/form-data" },
+      headers: { "Content-Type": "application/json" },
+      data: {
+        zone: zone,
+        date: date,
+        time: time,
+      },
     })
-      .then(
-        (res = () => {
-          console.log(res);
-        })
-      )
-      .catch(
-        (res = () => {
-          console.log(res);
-        })
-      );
+      .then((res) => {
+        console.log(res);
+        props.set_data(res.data);
+      })
+      .catch((res) => {
+        console.log(res);
+      });
   };
 
   return (
