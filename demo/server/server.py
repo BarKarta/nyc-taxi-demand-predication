@@ -48,7 +48,6 @@ def get_input():
     #     date, time)
     # # TODO Convert the Time to a interval
     # time_binned = getTimeBinned(time)
-    # TODO Convert the Date to a WeekDay e.g 1/5/22 -> friday
     weekday = getWeekDay(date)
     # # TODO Convert the Zone number to a zone name based on the map the user is look at ( The Map we use in the REACT part).
     # zone_name = getZoneName(zone)
