@@ -16,19 +16,11 @@ const Input_Row = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="input_rows">
-        <label for="zone">zone:</label>
+        <label for="zone">Zone:</label>
         <input type="text" id="zoneID" />
-        <label for="Time">Time:</label>
-        <input type="text" id="timeID" />
-        <label for="">zone:</label>
-        <input type="text" id="zoneID" />
-        <label for="zone">zone:</label>
-        <input type="text" id="zoneID" />
-        <label for="zone">zone:</label>
-        <input type="text" id="zoneID" />
-        <label for="zone">zone:</label>
-        <input type="text" id="zoneID" />
-        <label for="zone">zone:</label>
+        <label for="date">Date:</label>
+        <input type="text" id="dateID" />
+        <label for="">Time:</label>
         <input type="text" id="zoneID" />
         <input type="submit" value="Submit" />
       </div>
