@@ -64,6 +64,8 @@ def getWeekDay(date):
     my_date = datetime.strptime(date, "%d/%m/%Y")
     return calendar.day_name[my_date.weekday()]
 
+# TODO Change the function to output the zones number instead of the name
+
 
 def getZoneName(zone):
     for key in zones_to_name_dict:
@@ -84,8 +86,7 @@ def get_input():
     # # TODO Convert the Time to a interval
     # time_binned = getTimeBinned(time)
     weekday = getWeekDay(date)
-    zone_name = getZoneName(zone)
-    return jsonify(f'Zone : {zone}, Date : {date}, Time : {time},WeekDay: {weekday},Zone Name : {zone_name}')
+    return jsonify(f'Zone: {zone}, Date: {date}, Time: {time}, WeekDay: {weekday}')
 
 
 if __name__ == '__main__':
