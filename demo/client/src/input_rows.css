@@ -2,7 +2,15 @@
   display: flex;
   flex-direction: column;
   padding: 1em;
+  width: 100%;
 }
-.input_rows > input {
-  margin-bottom: 10px;
+.react-datepicker-wrapper {
+  width: 100%;
+}
+.react-datepicker__input-container {
+  width: 100%;
+}
+input,
+.searchBox {
+  width: 100%;
 }

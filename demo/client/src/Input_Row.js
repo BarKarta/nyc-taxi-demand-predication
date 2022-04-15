@@ -1,10 +1,10 @@
-import "./input_rows.css";
 import axios from "axios";
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Moment from "moment";
 import Multiselect from "multiselect-react-dropdown";
+import "./input_rows.css";
 
 const Input_Row = (props) => {
   const [zone, setZone] = useState([]);
@@ -52,7 +52,6 @@ const Input_Row = (props) => {
       <div className="input_rows">
         <label for="zone">Zone:</label>
         <Multiselect
-          required
           isObject={false}
           onKeyPressFn={function noRefCheck() {}}
           onRemove={selected_zones}
