@@ -18,7 +18,7 @@ const App = (props) => {
   };
   const neighborhoodHoverStyle = {
     weight: 5,
-    color: "#8856a7",
+    color: "#ff8c00",
     dashArray: "1",
     fillOpacity: 0.7,
   };

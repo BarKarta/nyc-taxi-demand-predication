@@ -9,7 +9,7 @@ const Main_comp = () => {
   return (
     <div className="container">
       <div className="title">
-        <h1>NYC Demo</h1>
+        <h1>New York City - Taxi Prediction Demo</h1>
       </div>
       <div className="contentContainer">
         <div className="leftContainer">

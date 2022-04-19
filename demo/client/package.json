@@ -12,6 +12,7 @@
     "react": "^18.0.0",
     "react-datepicker": "^4.7.0",
     "react-dom": "^18.0.0",
+    "react-gradient-timepicker": "^0.0.3",
     "react-moment": "^1.1.2",
     "react-nyc-choropleth": "^1.0.6",
     "react-scripts": "5.0.0",
