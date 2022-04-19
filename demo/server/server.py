@@ -5,8 +5,10 @@ from flask import Flask
 from flask import jsonify
 from flask_cors import CORS
 from flask import request
+import requests
 from datetime import datetime
 import calendar
+import sys
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -49,10 +51,14 @@ zones_to_name_dict = {
 }
 
 
-def getWeather(date: String, time: String):
-
+def getWeather():
     # TODO MAKE FUNCTION
-    return 1
+    API_KEY = '122b5198256253814e7bb22a9e9da50f'
+    city = 'Manhattan'
+    url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={API_KEY}'
+    response = requests.get(url).json()
+    print(response, file=sys.stdout)
+    return
 
 
 def getTimeBinned(time):
@@ -81,10 +87,10 @@ def get_input():
     date = request.json['date']
     time = request.json['time']
     # # TODO Add the API and get the weather information needed, based on the data we are getting from the user
-    # temp_man, temp_min, hdd, cdd, precipitation, new_snow, snow_depth = getWeather(
-    #     date, time)
+    # temp_man, temp_min, hdd, cdd, precipitation, new_snow, snow_depth = getWeather()
     # # TODO Convert the Time to a interval
     # time_binned = getTimeBinned(time)
+    getWeather()
     weekday = getWeekDay(date)
     return jsonify(f'Zone: {zone}, Date: {date}, Time: {time}, WeekDay: {weekday}')
 
