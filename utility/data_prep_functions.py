@@ -1,8 +1,6 @@
 """ This Module contains functions which used in the data preperation proccess.
     """
 
-from telnetlib import SE
-from tokenize import String
 from typing import Final, List
 import pandas as pd
 
