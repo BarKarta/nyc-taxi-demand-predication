@@ -1,15 +1,11 @@
-import json
-import string
-from tokenize import String
+
 from typing import Final
 from flask import Flask
-from flask import jsonify
 from flask_cors import CORS
 from flask import request
 import requests
 from datetime import datetime
 import calendar
-import sys
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -62,6 +58,7 @@ def getWeather():
     response = requests.get(url).json()
     return response
 
+
 def getTimeBinned(time):
     # TODO MAKE FUNCTION
     return 1
@@ -74,7 +71,7 @@ def getWeekDay(date):
 # TODO Change the function to output the zones number instead of the name
 
 
-def getZoneName(zone):
+def getZoneName(zone_mane):
     for key in zones_to_name_dict:
         if zone in zones_to_name_dict[key]:
             zone_name = key
@@ -88,7 +85,7 @@ def get_input():
     date = request.json['date']
     time = request.json['time']
     # # TODO Add the API and get the weather information needed, based on the data we are getting from the user
-    # temp_man, temp_min, hdd, cdd, precipitation, new_snow, snow_depth = getWeather()
+    # temp_max, temp_min, hdd, cdd, precipitation, new_snow, snow_depth = getWeather()
     # # TODO Convert the Time to a interval
     # time_binned = getTimeBinned(time)
     getWeather()
