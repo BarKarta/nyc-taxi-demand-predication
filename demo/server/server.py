@@ -1,6 +1,7 @@
 import json
 import string
 from tokenize import String
+from typing import Final
 from flask import Flask
 from flask import jsonify
 from flask_cors import CORS
@@ -53,13 +54,13 @@ zones_to_name_dict = {
 
 def getWeather():
     # TODO MAKE FUNCTION
-    API_KEY = '122b5198256253814e7bb22a9e9da50f'
-    city = 'Manhattan'
-    url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={API_KEY}'
+    API_KEY: Final = '122b5198256253814e7bb22a9e9da50f'
+    LAT: Final = 40.7834
+    LON: Final = -73.9662
+    EXCLUDE: Final = ['minutely', 'daily', 'alerts']
+    url = f'https://api.openweathermap.org/data/2.5/onecall?lat={LAT}&lon={LON}&exclude={EXCLUDE}&units=metric&appid={API_KEY}'
     response = requests.get(url).json()
-    print(response, file=sys.stdout)
-    return
-
+    return response
 
 def getTimeBinned(time):
     # TODO MAKE FUNCTION
@@ -92,7 +93,7 @@ def get_input():
     # time_binned = getTimeBinned(time)
     getWeather()
     weekday = getWeekDay(date)
-    return jsonify(f'Zone: {zone}, Date: {date}, Time: {time}, WeekDay: {weekday}')
+    return getWeather()
 
 
 if __name__ == '__main__':

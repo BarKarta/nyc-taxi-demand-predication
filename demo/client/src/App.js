@@ -1,5 +1,6 @@
 import React from "react";
 import ReactNYC from "react-nyc-choropleth";
+import "./app.css";
 
 const App = (props) => {
   const mapboxAccessToken =
@@ -11,26 +12,26 @@ const App = (props) => {
   const neighborhoodStyle = {
     weight: 1,
     opacity: 1,
-    color: "#666",
+    color: "#121212",
     dashArray: "3",
     fillOpacity: 0.7,
   };
   const neighborhoodHoverStyle = {
     weight: 5,
-    color: "#FFF",
+    color: "#ff8c00",
     dashArray: "1",
     fillOpacity: 0.7,
   };
-  const excludeNeighborhoods = ["Liberty Island", "Ellis Island"];
+  const excludeNeighborhoods = [];
 
   return (
-    <div>
+    <div className="outer-map-container">
       <ReactNYC
         mapboxAccessToken={mapboxAccessToken} // Required
-        mapHeight="800px" // Required
-        mapWidth="600px"
+        mapHeight="100%" // Required
+        mapWidth=""
         className="container"
-        mapboxType={mapboxType}
+        mapboxType="dark"
         mapCenter={position}
         mapZoom={zoom}
         mapScrollZoom={false}

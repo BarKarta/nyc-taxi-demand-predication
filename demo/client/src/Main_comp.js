@@ -5,17 +5,21 @@ import "./main_comp.css";
 
 const Main_comp = () => {
   const [data, setData] = useState([]);
-    
+
   return (
-    <>
+    <div className="container">
       <div className="title">
-        <h1>NYC Demo</h1>
+        <h1>New York City - Taxi Prediction Demo</h1>
       </div>
-      <div className="container">
-        <Input_Row set_data={setData} />
-        <App data={data} />
+      <div className="contentContainer">
+        <div className="leftContainer">
+          <Input_Row set_data={setData} />
+        </div>
+        <div className="rightContainer">
+          <App data={data} />
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 export default Main_comp;
