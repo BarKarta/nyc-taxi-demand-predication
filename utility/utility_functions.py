@@ -56,7 +56,7 @@ def split_X_y(df: pd.DataFrame, target_feature: str) -> Tuple[List[str], pd.Data
 
     Args:
         df (pd.DataFrame): Dataframe
-        target_feature (_type_): the target feature you want to train your 
+        target_feature (_type_): the target feature you want to train your
                                  model for
 
     Returns:

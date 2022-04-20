@@ -31,6 +31,4 @@ CDD
 Precipitation
 new_snow
 snow_depth
-trip_distance
-trip_time
-speed
+
