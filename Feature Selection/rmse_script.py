@@ -1,18 +1,24 @@
+import os
+import pickle
+from typing import Final, List
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 import warnings
 import pandas as pd
 import numpy as np
-import utility.utility_functions as ut
-from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import MinMaxScaler
+import utility.utility_functions as ut
 import sys
 sys.path.append("..")
+
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
+MODEL_NAME: Final[str] = 'ML_model.sav'
 
-def get_rmse_for_df(df_input: pd.DataFrame) -> int:
+
+def get_rmse_for_df(df_input: pd.DataFrame, df_name: str) -> int:
 
     df = df_input.copy()
     df.dropna(inplace=True)
@@ -51,6 +57,9 @@ def get_rmse_for_df(df_input: pd.DataFrame) -> int:
         backward_rmse_list.append(rmse_train)
         if backward_best_rmse > rmse_train:
             backward_best_rmse = rmse_train
+            backward_best_model = xg_reg
+            backward_best_features = X_train_scaled_backwards.columns.tolist()
+
         X_train_scaled_backwards.drop(feature, axis=1, inplace=True)
 
     # Forwards
@@ -69,9 +78,29 @@ def get_rmse_for_df(df_input: pd.DataFrame) -> int:
         rmse_train = np.sqrt(mean_squared_error(y_train, train_pred))
         forward_rmse_list.append(rmse_train)
         if forward_best_rmse > rmse_train:
+            forward_best_model = xg_reg
             forward_best_rmse = rmse_train
+            forward_best_features = X_train_scaled_forward.columns.tolist()
 
+    # Checks what is better
     if forward_best_rmse > backward_best_rmse:
+        saveData(backward_best_model, backward_best_features, df_name)
         return backward_best_rmse, np.std(y)
     else:
+        saveData(forward_best_model, forward_best_features, df_name)
         return forward_best_rmse, np.std(y)
+
+
+def saveData(model, features: List[str], df_name: str):
+    NEW_PATH: Final[str] = r'..\models_data'
+    folder_path = os.path.join(NEW_PATH, df_name)
+    os.mkdir(folder_path)
+
+    # Saves the features
+    with open(f'..\\models_data\\{df_name}\\best_features.txt',
+              'w') as file:
+        for feature in features:
+            file.write("%s\n" % feature)
+    # Saves the best Model
+    with open(f'..\\models_data\\{df_name}\\best_model.sav', 'wb') as f:
+        pickle.dump(model, f)

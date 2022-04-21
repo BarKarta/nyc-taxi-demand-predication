@@ -5,8 +5,10 @@ from typing import Final, List
 import pandas as pd
 
 # CONST
-MANHATTAN_ZONES_PATH: Final = r"C:\Users\barka\OneDrive\Final Project\nyc_zones.csv"
-WEATHER_CSV_PATH = r'C:\Users\barka\OneDrive\Final Project\Data\NYC Weather.csv'
+MANHATTAN_ZONES_PATH: Final = r"C:\Users\barka\OneDrive\Final Project\
+    \nyc_zones.csv"
+WEATHER_CSV_PATH: Final = r'C:\Users\barka\OneDrive\Final Project\Data\
+    \NYC Weather.csv'
 
 
 def get_outliers(df, series):
@@ -41,7 +43,7 @@ def get_hours_label(min: int, max: int) -> List:
     Returns:
         List: Returns a list of strings ( labels )
     """
-    return [f'{s:02d} - {s:02d}' for s in range(min, max)]
+    return [f'{s:02d}:00 - {s:02d}:59' for s in range(min, max)]
 
 
 def get_manhattan_zones_ID() -> List:

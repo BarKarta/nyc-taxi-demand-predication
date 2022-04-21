@@ -3,12 +3,13 @@
     So we can work on a single DF.
 """
 
+from typing import Final
 import pandas as pd
 import os
 
 # CONST
-NYC_ZONES_CSV_PATH = r"C:\Users\barka\OneDrive\Final Project\nyc_zones.csv"
-DATA_PATH = r"D: \Final Project\Data\2019\Manhattan_Data"
+NYC_ZONES_CSV_PATH: Final[str] = r"C:\Users\barka\OneDrive\Final Project\nyc_zones.csv"
+DATA_PATH: Final[str] = r"D: \Final Project\Data\2019\Manhattan_Data"
 # Load the NYC zones ID.
 nyc_zones = pd.read_csv(NYC_ZONES_CSV_PATH)
 

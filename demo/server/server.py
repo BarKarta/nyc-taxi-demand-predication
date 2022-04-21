@@ -1,6 +1,5 @@
 
-from tokenize import String
-from typing import Final
+from typing import Final, List
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask import request
@@ -51,28 +50,32 @@ zones_to_name_dict: Final = {
 
 
 def getWeather():
-    API_KEY: Final = '122b5198256253814e7bb22a9e9da50f'
-    LAT: Final = 40.7834
-    LON: Final = -73.9662
-    EXCLUDE: Final = ['minutely', 'daily', 'alerts']
+    API_KEY: Final[str] = '122b5198256253814e7bb22a9e9da50f'
+    LAT: Final[float] = 40.7834
+    LON: Final[float] = -73.9662
+    EXCLUDE: Final[list] = ['minutely', 'daily', 'alerts']
     url = f'https://api.openweathermap.org/data/2.5/onecall?lat={LAT}&lon={LON}&exclude={EXCLUDE}&units=metric&appid={API_KEY}'
     response = requests.get(url).json()
     return response
 
 
-def getTimeBinned(time: String):
+def getTimeBinned(time: str):
     h, m = time.split(':')
     h = str(h)
     return f'{h:02}:00 - {h:02}:59'
 
 
-def getWeekDay(date):
+def getWeekDay(date: datetime):
     my_date = datetime.strptime(date, "%d/%m/%Y")
     return calendar.day_name[my_date.weekday()]
 
 
-def getZoneIDs(zone_name):
-    return zones_to_name_dict.get(zone_name)
+def getZoneIDs(zone_name: List[str]):
+
+    return zones_to_name_dict.get(zone_name[0])
+
+
+# def calcModel(zone,weekday,time_binned):
 
 
 @app.route('/calc', methods=['POST'])
@@ -85,7 +88,7 @@ def get_input():
     zone_id = getZoneIDs(zone)
     getWeather()
     weekday = getWeekDay(date)
-    # return zone, date, time_binned, weekday
+
     return jsonify(f'{zone_id}, {date}, {time_binned}, {weekday}')
 
 

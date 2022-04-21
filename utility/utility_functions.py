@@ -3,7 +3,8 @@ from typing import Tuple, List, Final
 import pandas as pd
 
 # CONST
-post_data_prep_all_zone_PATH: Final = r'C:\Users\barka\OneDrive\Final Project\Data\Manhattan\2019\post_data_prep_all_zones.csv'
+post_data_prep_all_zone_PATH: Final = r'C:\Users\barka\OneDrive'\
+    r'\Final Project\Data\Manhattan\2019\post_data_prep_all_zones.csv'
 
 
 def load_post_data_prep_all_zone() -> pd.DataFrame:
