@@ -28,7 +28,7 @@ const Input_Row = (props) => {
     })
       .then((res) => {
         console.log(res);
-        // props.set_data(res.data);
+        props.set_data(res.data);
       })
       .catch((res) => {
         console.log(res);

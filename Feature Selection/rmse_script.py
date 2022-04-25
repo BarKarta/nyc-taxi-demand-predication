@@ -84,11 +84,15 @@ def get_rmse_for_df(df_input: pd.DataFrame, df_name: str) -> int:
 
     # Checks what is better
     if forward_best_rmse > backward_best_rmse:
+        test_rmse = getTestResult(
+            backward_best_model, X_test_scaled, y_test, backward_best_features)
         saveData(backward_best_model, backward_best_features, df_name)
-        return backward_best_rmse, np.std(y)
+        return backward_best_rmse, np.std(y), test_rmse
     else:
+        test_rmse = getTestResult(
+            forward_best_model, X_test_scaled, y_test, forward_best_features)
         saveData(forward_best_model, forward_best_features, df_name)
-        return forward_best_rmse, np.std(y)
+        return forward_best_rmse, np.std(y), test_rmse
 
 
 def saveData(model, features: List[str], df_name: str):
@@ -104,3 +108,10 @@ def saveData(model, features: List[str], df_name: str):
     # Saves the best Model
     with open(f'..\\models_data\\{df_name}\\best_model.sav', 'wb') as f:
         pickle.dump(model, f)
+
+
+def getTestResult(model, x_test, y_test, features) -> int:
+    x_test = x_test[features]
+    pred = model.predict(x_test)
+    rmse = np.sqrt(mean_squared_error(y_test, pred))
+    return rmse

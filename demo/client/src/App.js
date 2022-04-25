@@ -8,6 +8,7 @@ const App = (props) => {
   const mapboxType = "streets";
   const position = [40.7831, -73.9712];
   const zoom = 12;
+
   const data = props.data;
   const neighborhoodStyle = {
     weight: 1,

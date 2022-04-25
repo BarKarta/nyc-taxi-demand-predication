@@ -51,7 +51,8 @@ def swap_first_and_last_col(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def split_X_y(df: pd.DataFrame, target_feature: str) -> Tuple[List[str], pd.DataFrame]:
+def split_X_y(df: pd.DataFrame, target_feature: str) -> Tuple[List[str],
+                                                              pd.DataFrame]:
     """ split the data into two, dataframe with out the target feature,
         and an array of the target feature.
 
