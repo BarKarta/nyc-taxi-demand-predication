@@ -10,7 +10,7 @@ from typing import Final
 
 
 # CONST
-MANHATTAN_DATA_PATH: Final = r"D: \Final Project\Data\2019\Manhattan_Data"
+MANHATTAN_DATA_PATH: Final[str] = r"D: \Final Project\Data\2019\Manhattan_Data"
 
 # Variables
 twenty_four_hours_labels = dpf.get_hours_label(0, 24)

@@ -7,8 +7,8 @@ from utility import data_prep_functions as dpf
 import os
 
 # CONST
-NYC_DATA_PATH: Final = r'D: \Final Project\Data'
-OUTPUT_PATH: Final = r'D:\Final Project\Data\Manhattan_Data'
+NYC_DATA_PATH: Final[str] = r'D: \Final Project\Data'
+OUTPUT_PATH: Final[str] = r'D:\Final Project\Data\Manhattan_Data'
 for i in range(12):
 
     # Loads the NYC data

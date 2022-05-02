@@ -8,9 +8,9 @@ import os as os
 from utility import data_prep_functions as dpf
 
 # CONST
-MANHATTAN_DATA_PATH: Final = r"C:\Users\barka\OneDrive\Final Project\
+MANHATTAN_DATA_PATH: Final[str] = r"C:\Users\barka\OneDrive\Final Project\
     \nyc_zones.csv"
-PARENT_DIR: Final = r"D:\Final Project\Data\2019\Manhattan_Data"
+PARENT_DIR: Final[str] = r"D:\Final Project\Data\2019\Manhattan_Data"
 MODE: Final = 0o666
 
 # Gets Manahattan zones ID
