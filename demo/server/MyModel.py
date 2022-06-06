@@ -62,8 +62,8 @@ class MyModel:
         Returns:
             Model: Model
         """
-        is_weekend = self.__isWeekEnd(self)  # Returns weekday or weekend
-        get_time = self.__getDayRange(self)  # Returns Morning / night .. etc
+        is_weekend = self.__isWeekEnd()  # Returns weekday or weekend
+        get_time = self.__getDayRange()  # Returns Morning / night .. etc
         model = MODEL_PATH_DICT.get('summer', {}).get(
             is_weekend).get(get_time, {})  # Gets the Model from the dict
         return model
@@ -124,16 +124,16 @@ class ModelMetaData:
 MODEL_PATH_DICT: Final[dict] = {
     'summer': {
         'weekday': {
-            'morning': ModelMetaData(r'mid_week_morning_df'),
-            'afternoon': ModelMetaData(r'mid_week_noon_afternoon_df'),
-            'night': ModelMetaData(r'mid_week_night_df'),
-            'midnight': ModelMetaData(r'mid_week_midnight_df')
+            'morning': ModelMetaData(r'summer_mid_week_morning_df'),
+            'afternoon': ModelMetaData(r'summer_mid_week_noon_afternoon_df'),
+            'night': ModelMetaData(r'summer_mid_week_night_df'),
+            'midnight': ModelMetaData(r'summer_mid_week_midnight_df')
         },
         'weekend': {
-            'morning': ModelMetaData(r'week_end_morning_df'),
-            'afternoon': ModelMetaData(r'week_end_noon_afternoon_df'),
-            'night': ModelMetaData(r'week_end_night_df'),
-            'midnight': ModelMetaData(r'week_end_midnight_df')
+            'morning': ModelMetaData(r'summer_week_end_morning_df'),
+            'afternoon': ModelMetaData(r'summer_week_end_noon_afternoon_df'),
+            'night': ModelMetaData(r'summer_week_end_night_df'),
+            'midnight': ModelMetaData(r'summer_week_end_midnight_df')
         }
     },
     'spring': {
