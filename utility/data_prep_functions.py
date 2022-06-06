@@ -1,8 +1,11 @@
 """ This Module contains functions which used in the data preperation proccess.
     """
-
-from typing import Final, List
+import sys
+sys.path.append("..")
 import pandas as pd
+from typing import Final, List
+from utility.db_util import db_reader
+
 
 # CONST
 MANHATTAN_ZONES_PATH: Final = r"C:\Users\barka\OneDrive\Final Project\
@@ -52,7 +55,11 @@ def get_manhattan_zones_ID() -> List:
     Returns:
         List: List of ID's
     """
-    nyc_zones = pd.read_csv(MANHATTAN_ZONES_PATH)
+    sql = """
+            SELECT *
+            FROM nyc_zones
+            """
+    nyc_zones = db_reader(sql, 'nyc_taxis_db')
     manhattan_zones = nyc_zones.loc[nyc_zones['Borough']
                                     == 'Manhattan']
     manhattan_zones_ID = manhattan_zones['LocationID'].tolist()
@@ -65,7 +72,11 @@ def get_weather_data() -> pd.DataFrame:
     Returns:
         pd.DataFrame: Contains the Weather Data
     """
-    weather_df = pd.read_csv(WEATHER_CSV_PATH)
+    sql = """
+            SELECT *
+            FROM weather_data
+            """
+    weather_df = db_reader(sql, 'nyc_taxis_db')
     weather_df['Date'] = pd.to_datetime(weather_df['Date'], format='%d/%m/%Y')
     weather_df.rename(columns={'Date': 'pickup_date'}, inplace=True)
     return weather_df

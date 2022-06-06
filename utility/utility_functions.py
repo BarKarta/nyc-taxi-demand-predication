@@ -30,8 +30,7 @@ def get_dummies(cat_features: list, df: pd.DataFrame) -> pd.DataFrame:
     """
     for feature in cat_features:
         temp_dummy = pd.get_dummies(df[feature])
-        df = pd.merge(left=temp_dummy, right=df,
-                      left_index=True, right_index=True)
+        df = pd.concat([temp_dummy, df], axis=1)
     df = df.drop(cat_features, axis=1)
     return df
 
