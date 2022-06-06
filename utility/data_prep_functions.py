@@ -14,7 +14,7 @@ WEATHER_CSV_PATH: Final = r'C:\Users\barka\OneDrive\Final Project\Data\
     \NYC Weather.csv'
 
 
-def get_outliers(df, series):
+def get_outliers(df: pd.DataFrame, series: pd.Series):
     """Returns Outliers"""
     q1 = series.quantile(0.25)
     q3 = series.quantile(0.75)
@@ -35,7 +35,7 @@ def get_outliers(df, series):
     return (botrange, toprange, outliers)
 
 
-def get_hours_label(min: int, max: int) -> List:
+def get_hours_label(min: int, max: int) -> List[str]:
     """ the function creates a list of labels in the format 00:00 - 00:59 for
         example
 
@@ -49,7 +49,7 @@ def get_hours_label(min: int, max: int) -> List:
     return [f'{s:02d}:00 - {s:02d}:59' for s in range(min, max)]
 
 
-def get_manhattan_zones_ID() -> List:
+def get_manhattan_zones_ID() -> List[str]:
     """ Returns the manhattan zones ID so  we can use it to filter later
 
     Returns:

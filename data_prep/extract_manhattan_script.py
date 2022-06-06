@@ -8,6 +8,12 @@ import sys
 sys.path.append("..")
 
 
+<<<<<<< HEAD
+=======
+# CONST
+NYC_DATA_PATH: Final[str] = r'D: \Final Project\Data'
+OUTPUT_PATH: Final[str] = r'D:\Final Project\Data\Manhattan_Data'
+>>>>>>> 46a0ad1752917e44cfc7d59eef06c25e201b7ce4
 for i in range(12):
 
     # Loads the NYC data
