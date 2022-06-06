@@ -13,7 +13,7 @@ MANHATTAN_DATA_PATH: Final[str] = r"C:\Users\barka\OneDrive\Final Project\
 PARENT_DIR: Final[str] = r"D:\Final Project\Data\2019\Manhattan_Data"
 MODE: Final = 0o666
 
-# Gets Manahattan zones ID
+# Gets Manhattan zones ID
 manhattan_zones_ID = dpf.get_manhattan_zones_ID()
 
 # For each Month Data, it creates a zone folder if not exists and then in that
