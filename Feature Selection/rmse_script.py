@@ -24,7 +24,7 @@ def get_rmse_for_df(df_input: pd.DataFrame, df_name: str) -> int:
     df.dropna(inplace=True)
     df.reset_index(inplace=True, drop=True)
 
-    main_df = ut.get_dummies(['weekday', 'time_binned'], df)
+    main_df = ut.get_dummies(['weekday', 'time_binned', 'Season'], df)
     main_df = ut.swap_first_and_last_col(main_df)
     y, X = ut.split_X_y(main_df, 'num_of_taxis')
 
