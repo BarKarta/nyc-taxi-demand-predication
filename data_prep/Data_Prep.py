@@ -16,7 +16,7 @@ for index in range(1, 13):
     sql = f"""
         SELECT *
         FROM manhattan_data_{index}
-        """~~
+        """
     main_df = db_reader(sql, 'manhattan')
     print('Step 1 Completed')
 
@@ -120,7 +120,9 @@ for index in range(1, 13):
     print('Step 6 Completed')
 
     print('Step 7: Groupby')
-    main_df = main_df.groupby(['PULocationID', 'pickup_date', 'time_binned']).agg({
+    main_df = main_df.groupby(
+        ['PULocationID', 'pickup_date', 'time_binned']
+    ).agg({
         'Tmax': 'mean',
         'Tmin': 'mean',
         'Tavg': 'mean',

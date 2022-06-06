@@ -1,11 +1,11 @@
 """ The script extracts the manhattan data from all the nyc data.
     it also drops unnecessary features.
     """
+from utility.db_util import db_reader
+from utility.db_util import db_writer
+from utility import data_prep_functions as dpf
 import sys
 sys.path.append("..")
-from utility import data_prep_functions as dpf
-from utility.db_util import db_writer
-from utility.db_util import db_reader
 
 
 for i in range(12):
