@@ -1,10 +1,10 @@
 """ This Module contains functions which used in the data preperation proccess.
     """
+from utility.db_util import db_reader
+from typing import Final, List
+import pandas as pd
 import sys
 sys.path.append("..")
-import pandas as pd
-from typing import Final, List
-from utility.db_util import db_reader
 
 
 # CONST
