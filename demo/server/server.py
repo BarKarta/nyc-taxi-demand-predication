@@ -79,7 +79,7 @@ def setWeatherData(res: json, time: str) -> dict:
 
 
 def getWeather(time: str) -> dict:
-    API_KEY: Final[str] = '122b5198256253814e7bb22a9e9da50f'
+    API_KEY: Final[str] = '{EnterYourOpenWeatherToekn}'
     LAT: Final[float] = 40.7834
     LON: Final[float] = -73.9662
     EXCLUDE: Final[list] = ['minutely', 'daily', 'alerts']
