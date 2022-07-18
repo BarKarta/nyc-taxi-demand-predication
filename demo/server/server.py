@@ -79,11 +79,14 @@ def setWeatherData(res: json, time: str) -> dict:
 
 
 def getWeather(time: str) -> dict:
-    API_KEY: Final[str] = '{EnterYourOpenWeatherToekn}'
+    API_KEY: Final[str] = '{EnterYourOpenWeatherToken}'
     LAT: Final[float] = 40.7834
     LON: Final[float] = -73.9662
     EXCLUDE: Final[list] = ['minutely', 'daily', 'alerts']
-    url = f'https://api.openweathermap.org/data/2.5/onecall?lat={LAT}&lon={LON}&exclude={EXCLUDE}&units=metric&appid={API_KEY}'
+    url = f"""https://api.openweathermap.org/data/2.5/onecall?
+                lat={LAT}&lon={LON}&exclude={EXCLUDE}
+                &units=metric&appid={API_KEY}
+            """
     response = requests.get(url).json()
     dict = setWeatherData(response, time)
     return dict
