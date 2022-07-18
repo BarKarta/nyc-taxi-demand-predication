@@ -8,6 +8,7 @@ from typing import Final, List
 import os
 import pandas as pd
 from datetime import datetime
+import sys
 
 
 class MyModel:
@@ -118,6 +119,7 @@ class ModelMetaData:
             folder_name (str): the name of the folder which contain the folder
         """
         self.path = os.path.join(r'..\..\models_data', folder_name)
+        print(self.path, file=sys.stderr)
 
 
 # CONST
@@ -138,44 +140,44 @@ MODEL_PATH_DICT: Final[dict] = {
     },
     'spring': {
         'weekday': {
-            'morning': 'path1',
-            'afternoon': 'path2',
-            'night': 'path3',
-            'midnight': 'path4'
+            'morning': ModelMetaData(r'spring_mid_week_morning_df'),
+            'afternoon': ModelMetaData(r'spring_mid_week_noon_afternoon_df'),
+            'night': ModelMetaData(r'spring_mid_week_night_df'),
+            'midnight': ModelMetaData(r'spring_mid_week_midnight_df')
         },
         'weekend': {
-            'morning': 'path1',
-            'afternoon': 'path2',
-            'night': 'path3',
-            'midnight': 'path4'
+            'morning': ModelMetaData(r'spring_week_end_morning_df'),
+            'afternoon': ModelMetaData(r'spring_week_end_noon_afternoon_df'),
+            'night': ModelMetaData(r'spring_week_end_night_df'),
+            'midnight': ModelMetaData(r'spring_week_end_midnight_df')
         }
     },
     'fall': {
         'weekday': {
-            'morning': 'path1',
-            'afternoon': 'path2',
-            'night': 'path3',
-            'midnight': 'path4'
+            'morning': ModelMetaData(r'fall_mid_week_morning_df'),
+            'afternoon': ModelMetaData(r'fall_mid_week_noon_afternoon_df'),
+            'night': ModelMetaData(r'fall_mid_week_night_df'),
+            'midnight': ModelMetaData(r'fall_mid_week_midnight_df')
         },
         'weekend': {
-            'morning': 'path1',
-            'afternoon': 'path2',
-            'night': 'path3',
-            'midnight': 'path4'
+            'morning': ModelMetaData(r'fall_week_end_morning_df'),
+            'afternoon': ModelMetaData(r'fall_week_end_noon_afternoon_df'),
+            'night': ModelMetaData(r'fall_week_end_night_df'),
+            'midnight': ModelMetaData(r'fall_week_end_midnight_df')
         }
     },
     'winter': {
         'weekday': {
-            'morning': 'path1',
-            'afternoon': 'path2',
-            'night': 'path3',
-            'midnight': 'path4'
+            'morning': ModelMetaData(r'winter_mid_week_morning_df'),
+            'afternoon': ModelMetaData(r'winter_mid_week_noon_afternoon_df'),
+            'night': ModelMetaData(r'winter_mid_week_night_df'),
+            'midnight': ModelMetaData(r'winter_mid_week_midnight_df')
         },
         'weekend': {
-            'morning': 'path1',
-            'afternoon': 'path2',
-            'night': 'path3',
-            'midnight': 'path4'
+            'morning': ModelMetaData(r'winter_week_end_morning_df'),
+            'afternoon': ModelMetaData(r'winter_week_end_noon_afternoon_df'),
+            'night': ModelMetaData(r'winter_week_end_night_df'),
+            'midnight': ModelMetaData(r'winter_week_end_midnight_df')
         }
     }
 }

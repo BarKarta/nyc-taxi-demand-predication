@@ -1,3 +1,4 @@
+from utility import data_prep_functions as ut
 import json
 from typing import Final, List
 from flask import Flask, jsonify
@@ -11,7 +12,6 @@ import calendar
 from MyModel import MyModel
 import sys
 sys.path.append("../..")
-from utility import data_prep_functions as ut
 
 app = Flask(__name__)
 cors = CORS(app)
